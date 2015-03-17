@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -15,9 +16,7 @@ namespace Assignment1.Controllers
             {
                 System.Diagnostics.Process cmdprocess = new System.Diagnostics.Process();
                 System.Diagnostics.ProcessStartInfo startinfo = new System.Diagnostics.ProcessStartInfo();
-                ////as of right now this is the absolute path of where the batch file is. 
-                ////Should probably be made into a relative path so it will be the same for everyone
-                startinfo.FileName = "C:\\Users\\Jesus\\Desktop\\test.bat";
+                startinfo.FileName = GetBatchPath();
                 startinfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 startinfo.CreateNoWindow = true;
                 startinfo.RedirectStandardInput = true;
@@ -27,6 +26,7 @@ namespace Assignment1.Controllers
                 startinfo.Arguments = String.Format("{0} {1}", "C:\\Users\\Jesus\\Desktop\\quicksort.c", "C:\\Users\\Jesus\\Desktop\\test1.txt"); 
                 cmdprocess.StartInfo = startinfo;
                 cmdprocess.Start();
+
             }
             catch {
                 throw;
@@ -46,6 +46,15 @@ namespace Assignment1.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        private string GetBatchPath() 
+        {
+            string codeBase = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            UriBuilder uri = new UriBuilder(codeBase);
+            string path = Uri.UnescapeDataString(uri.Path);
+            System.IO.DirectoryInfo directoryInfo = System.IO.Directory.GetParent(System.IO.Directory.GetParent(path).ToString());
+            UriBuilder uri2 = new UriBuilder(directoryInfo.ToString());
+            return Path.GetDirectoryName(Uri.UnescapeDataString(uri2.Path + "/CPP/CppCheck.bat/"));
         }
     }
 }
