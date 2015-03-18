@@ -1,0 +1,5 @@
+C:\Users\Jesus\Documents\GitHub\SecureProgrammingAssignment1\Assignment1\Dependencies\bin\Debug\Dependencies.dll
+C:\Users\Jesus\Documents\GitHub\SecureProgrammingAssignment1\Assignment1\Dependencies\bin\Debug\Dependencies.pdb
+C:\Users\Jesus\Documents\GitHub\SecureProgrammingAssignment1\Assignment1\Dependencies\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\Users\Jesus\Documents\GitHub\SecureProgrammingAssignment1\Assignment1\Dependencies\obj\Debug\Dependencies.dll
+C:\Users\Jesus\Documents\GitHub\SecureProgrammingAssignment1\Assignment1\Dependencies\obj\Debug\Dependencies.pdb

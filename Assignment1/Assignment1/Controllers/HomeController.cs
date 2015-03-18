@@ -11,50 +11,7 @@ namespace Assignment1.Controllers
     {
         public ActionResult Index()
         {
-
-            try
-            {
-                System.Diagnostics.Process cmdprocess = new System.Diagnostics.Process();
-                System.Diagnostics.ProcessStartInfo startinfo = new System.Diagnostics.ProcessStartInfo();
-                startinfo.FileName = GetBatchPath();
-                startinfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                startinfo.CreateNoWindow = true;
-                startinfo.RedirectStandardInput = true;
-                startinfo.RedirectStandardOutput = true;
-                startinfo.UseShellExecute = false;
-                ////paths of where the source and output files go
-                startinfo.Arguments = String.Format("{0} {1}", "C:\\Users\\Jesus\\Desktop\\quicksort.c", "C:\\Users\\Jesus\\Desktop\\test1.txt"); 
-                cmdprocess.StartInfo = startinfo;
-                cmdprocess.Start();
-
-            }
-            catch {
-                throw;
-            }
             return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-        private string GetBatchPath() 
-        {
-            string codeBase = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            UriBuilder uri = new UriBuilder(codeBase);
-            string path = Uri.UnescapeDataString(uri.Path);
-            System.IO.DirectoryInfo directoryInfo = System.IO.Directory.GetParent(System.IO.Directory.GetParent(path).ToString());
-            UriBuilder uri2 = new UriBuilder(directoryInfo.ToString());
-            return Path.GetDirectoryName(Uri.UnescapeDataString(uri2.Path + "/CPP/CppCheck.bat/"));
         }
     }
 }
