@@ -1,13 +1,21 @@
-﻿
-@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+﻿@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <label for="file">Upload Image:</label>
     <input type="file" name="file" id="file" /><br><br>
     <input type="submit" value="Upload Image" />
-    <div class="validation-summary-errors">@ViewBag.ErrorMessage</div>
+
+    if (ViewBag.ErrorMessage != null)
+    {
+        <div class="validation-summary-errors">@ViewBag.ErrorMessage</div>
+    }
     <br><br>
-    @ViewBag.Message
+    <div>@ViewBag.Message</div>
+
 }
 
+    @if (ViewBag.Message != null)
+    {
+        <button>Download Output</button>
+    }
 
 <script src="~/Scripts/home.js"></script>

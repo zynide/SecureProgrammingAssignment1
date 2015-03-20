@@ -31,8 +31,10 @@ namespace Assignment1.Controllers
                     }
                     else
                     {
-                        string path = Path.Combine(Server.MapPath("~/CPP"), String.Format("{0}.{1}","inputFile", extension));
-                        file.SaveAs(path);
+                        string path = Server.MapPath("~/CPP");
+                        string filePath = Path.Combine(path, String.Format("{0}{1}",Filetypes.inputFile, extension));
+                        file.SaveAs(filePath);
+                        ProcessFile process = new ProcessFile(path, extension);
                         ViewBag.Message = "File uploaded successfully";
                     }
                 }

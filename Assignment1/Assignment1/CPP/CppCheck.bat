@@ -1,3 +1,3 @@
-cd C:\Program Files (x86)\Cppcheck
-cppcheck --enable=all  --xml-version=2 "%1" 2> %2
+cd %1
+cppcheck --enable=all  --xml-version=2 "%2" 2> %3
 exit
