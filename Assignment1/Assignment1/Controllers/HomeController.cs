@@ -49,5 +49,32 @@ namespace Assignment1.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult WaitForFile()
+        {
+            bool isFileReady = false;
+            while (isFileReady == false)
+            {
+                isFileReady = IsOutputFileReady();
+                if (isFileReady == false)
+                {
+                    Task t = Task.Run(async delegate
+                    {
+                        await Task.Delay(TimeSpan.FromSeconds(1));
+                    });
+                    t.Wait();
+                }
+            }
+            return Json(isFileReady);
+        }
+
+        private bool IsOutputFileReady() {
+            bool isReady = false;
+            string[] fileEntries = Directory.GetFiles(Server.MapPath("~/CPP"))
+                                            .Select(path => Path.GetFileName(path))
+                                            .ToArray();
+            isReady = fileEntries.Contains(Filetypes.outputFile) ? true : false;
+            return isReady;
+        }
     }
 }

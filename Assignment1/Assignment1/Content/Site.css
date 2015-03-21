@@ -11,8 +11,7 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
-textarea {
+select {
     max-width: 280px;
 }
 
@@ -40,3 +39,61 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+textarea {
+    resize: none;
+    width: 80% !important;
+    overflow: auto;
+}
+
+.textboxDiv {
+    width: 100%;
+}
+
+.footer {
+    width: 90%;
+    height: 50px;
+    margin-left: 20px;
+    position:fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.margin25 {
+    margin-top: 25px;
+}
+
+.size30 {
+    font-size: 30px;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    margin-left: 0px;
+}
+
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+.btn-custom {
+    background-color: #66CCFF;
+    border-color: #0099FF;
+    color: #333;
+}
+
+    .btn-custom:hover {
+        background-color: #A8A8A8;
+        border-color: #A8A8A8;
+        color: #333;
+    }

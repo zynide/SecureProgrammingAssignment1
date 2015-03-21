@@ -1,21 +1,40 @@
-﻿@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <label for="file">Upload Image:</label>
-    <input type="file" name="file" id="file" /><br><br>
-    <input type="submit" value="Upload Image" />
-
-    if (ViewBag.ErrorMessage != null)
+﻿<div class="margin25">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <div class="validation-summary-errors">@ViewBag.ErrorMessage</div>
-    }
-    <br><br>
-    <div>@ViewBag.Message</div>
+       <label class="size30" for="file">Upload File:</label>
+        <br />
+        <div>
+            <div class="fileUpload btn btn-custom">
+                <span>Upload File</span>
+                <input id="uploadBtn" name="file" type="file" class="upload" />
+            </div>
+            <input id="uploadFile" placeholder="Choose File" disabled="disabled" />
+        </div>
+        <br />
 
+        <button class="btn btn-custom" type="submit">CPP Check</button>
+        <br />
+        if (ViewBag.ErrorMessage != null)
+        {      
+            <div class="validation-summary-errors">@ViewBag.ErrorMessage</div>
+        }
+        <br>
+
+        <div>@ViewBag.Message</div>
+    }
+</div>
+<input type="hidden" id="Message" value="@ViewBag.Message" />
+
+@if (ViewBag.Message != null)
+{
+    <div class="textboxDiv">
+        <textarea id="textbox" style="height: 550px;"></textarea>
+    </div>
+<br />
+    <button class="btn btn-custom" data-bind="click: DownloadOutputFile">Download Output</button>
 }
 
-    @if (ViewBag.Message != null)
-    {
-        <button>Download Output</button>
-    }
-
-<script src="~/Scripts/home.js"></script>
+@section scripts
+{
+    <script src="~/Scripts/home.js"></script>
+}
