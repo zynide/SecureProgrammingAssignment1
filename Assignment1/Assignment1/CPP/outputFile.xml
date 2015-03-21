@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="1.68"/>
+    <errors>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function strcmp() is not used." verbose="Return value of function strcmp() is not used.">
+            <location file="C:\Users\Jesus\Documents\GitHub\SecureProgrammingAssignment1\Assignment1\Assignment1\CPP\inputFile.c" line="3"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;test&apos; is never used." verbose="The function &apos;test&apos; is never used.">
+            <location file="C:\Users\Jesus\Documents\GitHub\SecureProgrammingAssignment1\Assignment1\Assignment1\CPP\inputFile.c" line="1"/>
+        </error>
+    </errors>
+</results>

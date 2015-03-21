@@ -13,6 +13,8 @@ namespace Assignment1.Controllers
     {
         public ActionResult Index()
         {
+            bool isLoggedIn = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            ViewBag.isLoggedIn = isLoggedIn == true ? "true" : "false";
             return View();
         }
 
@@ -20,6 +22,8 @@ namespace Assignment1.Controllers
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
         {
+            bool isLoggedIn = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            ViewBag.isLoggedIn = isLoggedIn == true ? "true" : "false";
             ViewBag.ErrorMessage = "";
             if (file != null && file.ContentLength > 0)
                 try

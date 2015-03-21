@@ -97,3 +97,17 @@ textarea {
         border-color: #A8A8A8;
         color: #333;
     }
+#welcomeDiv{
+    margin-top:60px;
+    font-size: 50px;
+}
+.text-center{
+    text-align:center;
+}
+#titletool{
+    font-size:72px;
+}
+#greetingslogIn {
+    text-align:right;
+    font-size:16px;
+}
